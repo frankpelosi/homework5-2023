@@ -1,9 +1,6 @@
-/*2. Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
-body{
-    font-family: 'Poppins', serif;
-    background-image: url("../images/concrete_seamless.png");
-    background-color: #f1f1f1;
-}
+
+/* 1. Animate the logo with keyframes.It should start at a width of 25px and grow to 475px.  It should also start with an opacity of 0 and end with an opacity of 1. */
+
 #logo{
     animation: logo 5s;
 }
@@ -14,26 +11,41 @@ body{
     }
     to{
         width: 475px;
-        opacity: 100;
+        opacity: 1;
     }
 }
+
+/* 2. Edit the body element to use the Poppins font (using Google fonts) with serif as a backup.  It should also use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+
+body{
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* 3. Edit the css for the header tag (all instances) to use flex to match our example. */
+
 header{
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
 }
+
+/* 4. Edit the css for the nav_links class to use flex to match our example using .nav_link class */
+
 .nav_links{
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
 }
+
+/* 5. Style the links so that they have the same color even after they have been visited.*/ 
+
 a:visited{
     color:#0000ff;
 }
-.pricing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* 6. Identify the proper selector to style ONLY those header elements that are direct children of a card class.*/ 
 .card > header{
     background: #288088;
     border: solid 2px #45ADAD;
@@ -42,32 +54,58 @@ a:visited{
     padding: 20px 0px;
 
 }
+/* 7. Edit the css for the card class to match our example. Achieve this by using a flex-property to specify an initial “size” of 450px.*/ 
 .card{
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     width: 450px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
+/* 8. Edit the css for the pricing class to match our example. You should use flex and the cards should be centered both horizontally and vertically. */
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* 9. Style the images in the gallery class. These elements will have a solid 10px border with a color of #50C7C7, 10px margin on all four sides and a width of 300px.  */
 
 .gallery img{
     border: solid 10px #50C7C7;
     width: 300px;
     margin: 10px;
 }
+
+/* 10. Edit the css for the gallery class to use flex to match our example. */
+
 .gallery {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-@media only screen and (min-width: 901px) {
+
+/* Media Query for + 900 Width */
+
+@media only screen and (min-width: 900px) {
+
+    /* 11. Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible */
+    
     header,.nav_links{
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-between;
     }
+
+    /* 12. Edit the css for the pricing and card classes to match our example.*/
+
     .pricing{
         flex-direction:row;
+        flex-wrap: nowrap;
         justify-content: center;
     }
     .card{
@@ -75,6 +113,9 @@ a:visited{
         height: fit-content;
         position: sticky;
     }
+
+    /* 13. Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. */ 
+
     a + header {
         position: sticky;
         top: 0;
@@ -84,38 +125,65 @@ a:visited{
     }
 }
 
+ /* 14. The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences. */
+
+ /*print media query */
+
 @media (prefers-reduced-motion){
     #logo{
         animation: none;
     }
 }
 @media print{
+
+/* 15. Change the font on your body to Arial with a backup value of  Helvetica */
+
+/* 16. The background image should be removed. */
+
     body{
         font-family: Arial, Helvetica;
         background-image: none;
     }
+
+    /* 17. Edit the nav/nav_links elements so that they are spaced according to the image above. */
+
     .nav_links{
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         width: 100%;
         justify-content: space-evenly;
     }
     nav{
         width: 100%;
     }
+
+    /* 18. Edit the pricing class so that the elements align along the bottom.  As long as it aligns along the bottom we don't care if the cards aren't the same height. */
+
     .pricing{
         flex-direction:row;
         align-items: flex-end;
+        flex-wrap: nowrap;
     }
+
+    /* 19. The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px. */ 
+
     .card{
         width: 275px;
         height: fit-content;
         border: solid 2px #45ADDD;
-        flex-basis: 325px;;
+        flex-basis: 325px;
+        flex-wrap: nowrap;
     }
+
+    /* 20. No part of the gallery should be visible.*/ 
+
     #gallery, .gallery{
         visibility: hidden;
     }
+
+    /* Without using list-style-type add the thumbs up entity as shown in the cards.*/
+
     .card li:nth-child(2)::after{
         content: "\1F44D";
     }
