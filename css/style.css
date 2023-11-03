@@ -1,9 +1,10 @@
 
 /* 1. Animate the logo with keyframes.It should start at a width of 25px and grow to 475px.  It should also start with an opacity of 0 and end with an opacity of 1. */
-
+/* Set animation duration */
 #logo{
     animation: logo 5s;
 }
+/* Set animation keyframes with opacity and sizing set */
 @keyframes logo {
     from{
         width: 25px;
@@ -60,6 +61,7 @@ a:visited{
     flex-direction: column;
     flex-wrap: nowrap;
     width: 450px;
+    /* Set corner radius to match header corner radius to prevent corner clipping */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
@@ -85,25 +87,29 @@ a:visited{
 .gallery {
     display: flex;
     justify-content: center;
+    /* flex wrap to match example*/
     flex-wrap: wrap;
 }
 
 /* Media Query for + 900 Width */
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 901px) {
 
     /* 11. Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible */
     
     header,.nav_links{
         display: flex;
+        /* Override column of mobile view */
         flex-direction: row;
         flex-wrap: nowrap;
+        /* Keep log and navigation items on opposite end*/
         justify-content: space-between;
     }
 
     /* 12. Edit the css for the pricing and card classes to match our example.*/
 
     .pricing{
+        /* Override column of mobile view */
         flex-direction:row;
         flex-wrap: nowrap;
         justify-content: center;
@@ -118,6 +124,7 @@ a:visited{
 
     a + header {
         position: sticky;
+        /* fix position at top */
         top: 0;
         left: 0;
         width: 100%;
@@ -141,6 +148,7 @@ a:visited{
 /* 16. The background image should be removed. */
 
     body{
+        /* Override font familiy and background in previous examples*/
         font-family: Arial, Helvetica;
         background-image: none;
     }
@@ -152,6 +160,7 @@ a:visited{
         flex-direction: row;
         flex-wrap: nowrap;
         width: 100%;
+        /* Override nav spacing from examples*/
         justify-content: space-evenly;
     }
     nav{
@@ -162,6 +171,7 @@ a:visited{
 
     .pricing{
         flex-direction:row;
+        /* Anchor cards at bottom */
         align-items: flex-end;
         flex-wrap: nowrap;
     }
